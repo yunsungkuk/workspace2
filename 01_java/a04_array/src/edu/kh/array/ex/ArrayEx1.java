@@ -286,7 +286,7 @@ public class ArrayEx1 {
 		int[] scores = new int[num];
 		
 		// 생성된 배열의 모든 요소에 입력 값을 대입
-		for (int i=0 ; i < num  ; i++) {
+		for (int i=0 ; i < scores.length  ; i++) {
 			System.out.print((i) + "번 인덱스 요소");
 			scores[i] = sc.nextInt();
 		}

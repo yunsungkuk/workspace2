@@ -5,7 +5,12 @@ public class ArrayPracticeRun {
 		
 		ArrayPractice practice = new ArrayPractice();
 		
-		practice.practice1();
+		
+//		practice.practice1();
+//		practice.practice2();
+//		practice.practice3();
+		practice.practice4();
+		
 	}
 
 }

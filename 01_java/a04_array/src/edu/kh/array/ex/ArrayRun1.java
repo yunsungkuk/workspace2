@@ -6,7 +6,7 @@ public class ArrayRun1 {
 		
 		ArrayEx1 example = new ArrayEx1();
 		
-		example.ex4();
+		example.ex7();
 		
 	}
 
