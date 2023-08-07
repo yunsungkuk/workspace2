@@ -27,7 +27,10 @@ public class Porsche extends Car {
 		return super.toString() + "Porsche [openTheDoor=" + openTheDoor + "]";
 	}
 	
-	
+	@Override
+	public void bindingTest() {
+		System.out.println("Spark 자료형 입니다.");
+	}
 	
 	
 }
