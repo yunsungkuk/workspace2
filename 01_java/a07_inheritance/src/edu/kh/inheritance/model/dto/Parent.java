@@ -48,4 +48,3 @@ public /*final*/ class Parent extends Object {
 // public final class 클래스명 -> 상속 불가
 // public final void 메서드명() -> 오버라이딩 불가
 
-
