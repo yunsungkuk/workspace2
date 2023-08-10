@@ -21,6 +21,8 @@ public class Student implements Comparable<Student> {
 	private char gender;
 	private int score;
 	
+	
+	public Student() {	}
 
 	// 매개변수 생성자
 	public Student(int grade, int ban, int number, String name, char gender, int score) {	
@@ -31,6 +33,8 @@ public class Student implements Comparable<Student> {
 		this.gender = gender;
 		this.score = score;
 	}
+
+
 
 	public int getGrade() {
 		return grade;

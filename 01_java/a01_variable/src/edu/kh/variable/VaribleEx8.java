@@ -137,8 +137,6 @@ public class VaribleEx8 {
 		
 		System.out.println("bNum1 : " + bNum1);
 		System.out.println("bNum2 : " + bNum2);
-		
-		
-		
 	}
+	
 }

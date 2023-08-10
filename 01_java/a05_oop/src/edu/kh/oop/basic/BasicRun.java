@@ -5,7 +5,7 @@ package edu.kh.oop.basic;
  * - 현실 : 속성(data)과 기능(method)를 가지고 있는 식별 가능한 것
  * 
  * - java : 클래스에 작성된 내용을 토대로
- *          new 연산제에 의해 Heap 메모리에 생성 되는 것
+ *          new 연산자에 의해 Heap 메모리에 생성 되는 것
  *          
  * 클래스(class)란?
  * - 객체의 특성(속성, 기능)을 정의한 것

@@ -11,7 +11,7 @@ public class SwitchEx {
 	 * 
 	 * [작성법]
 	 * 
-	 * swutch(식) { //식의 결과는 정수 또는 문자열
+	 * switch(식) { //식의 결과는 정수 또는 문자열
 	 * case 결과1 : 결과1의 수행 코드; break;
 	 * case 결과2 : 결과2의 수행 코드; break; 
 	 * case 결과3 : 결과3의 수행 코드; break; 
