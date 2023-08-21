@@ -94,9 +94,10 @@ public class Server {
 			// 7-2 ) 서버 <- 클라이언트 메시지 받기 (입력)
 			String clienMessage = br.readLine(); // 한 줄 읽기
 			
+			// 어떤 ip로 접속을 했는지 알려주는 구문
 			String clientIP = clientSocket.getInetAddress().getHostAddress();
 			
-			System.out.println("클라이언트로 부터 받은 메시지 : " + clienMessage);
+			System.out.println(clientIP + "로 부터 받은 메시지 : " + clienMessage);
 			
 			
 			
