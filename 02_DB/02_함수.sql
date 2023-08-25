@@ -47,7 +47,7 @@ FROM DUAL; -- 10
 -- 문자열을 시작 위치부터 지정된 길이 만큼 잘라내서 반환
 -- 길이 미작성 시 시작 위치부터 끝까지 잘라내서 반환
 
-SELECT SUBSTR('ABCDEFG', '3', '3') FROM DUAL; -- CDE
+SELECT SUBSTR('ABCDEFG', '3', '2') FROM DUAL; -- CDE
 SELECT SUBSTR('ABCDEFG', '3') FROM DUAL; -- CDEFG
 
 -- EMPLOYEE 테이블에서
