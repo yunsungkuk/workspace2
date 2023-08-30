@@ -263,6 +263,8 @@ AND UCC.CONSTRAINT_NAME = '제약조건명';
 
 -- UNIQUE 복합키
 -- 두 개 이상의 컬럼을 묶어서 하나의 UNIQUE 제약조건을 설정함
+--> 지정된 모든 컬럼의 값이 일치해야 중복으로 판단!
+--> 복합키는 테이블 레벨로만 설정 가능
 CREATE TABLE USER_USED_UK2(
     USER_NO NUMBER,
     USER_ID VARCHAR2(20),
@@ -271,6 +273,9 @@ CREATE TABLE USER_USED_UK2(
     GENDER VARCHAR2(10),
     PHONE VARCHAR2(30),
     EMAIL VARCHAR2(50)
+    
+    -- 테이블 레벨 복합키 지정
+    , CONSTRAINT USER_ID_NAME_U UNIQUE (USER_ID, USER_NAME)
   
 );
 
@@ -286,10 +291,6 @@ INSERT INTO USER_USED_UK2
 VALUES(2, 'user02', 'pass01', '홍길동', '남', '010-1234-5678', 'hong123@kh.or.kr');
 --> USER_ID가 다름
 
-INSERT INTO USER_USED_UK2
-VALUES(1, 'user01', 'pass01', '홍길동', '남', '010-1234-5678', 'hong123@kh.or.kr');
---> 여러 컬럼을 묶어서 UNIQUE 제약 조건이 설정되어 있으면 
--- 두 컬럼이 모두 중복되는 값일 경우에만 오류 발생
 
 SELECT * FROM USER_USED_UK2;
 
@@ -299,16 +300,26 @@ SELECT * FROM USER_USED_UK2;
 -- 3. PRIMARY KEY(기본키) 제약조건 
 
 -- 테이블에서 한 행의 정보를 찾기위해 사용할 컬럼을 의미함
--- 테이블에 대한 식별자(IDENTIFIER) 역할을 함
+
+-- 테이블에 대한 식별자(IDENTIFIER) 역할을 함 ** 외울거면 아래 제약조건의 의미까지 2줄 외우기
+	--> 학번, 사번, 주민등록번호, 시리얼넘버, 번호표, 게시글 번호...
+
 -- NOT NULL + UNIQUE 제약조건의 의미
+
 -- 한 테이블당 한 개만 설정할 수 있음
+
 -- 컬럼레벨, 테이블레벨 둘다 설정 가능함
+
 -- 한 개 컬럼에 설정할 수도 있고, 여러개의 컬럼을 묶어서 설정할 수 있음
 
 
 CREATE TABLE USER_USED_PK(
-    USER_NO NUMBER ,
+	-- 컬럼 레벨로 PK 지정
+	-- USER_NO NUMBER PRIMARY KEY, -- 컬럼 레벨, 이름 지정 X
+    -- USER_NO NUMBER CONSTRAINT USER_NO_PK PRIMARY KEY, -- 컬럼 레벨, 이름 지정  0
     
+	USER_NO NUMBER, -- 테이블 레벨 지정용 컬럼(테이블 마지막 줄에 작성)
+
     USER_ID VARCHAR2(20) UNIQUE,
     USER_PWD VARCHAR2(30) NOT NULL,
     USER_NAME VARCHAR2(30),
@@ -316,6 +327,9 @@ CREATE TABLE USER_USED_PK(
     PHONE VARCHAR2(30),
     EMAIL VARCHAR2(50)
 
+    -- 테이블 레벨
+    --, PRIMARY KEY(USER_NO) -- 테이블 레벨, 이름 지정 X
+    , CONSTRAINT USER_NO_PK PRIMARY KEY(USER_NO) -- 테이블 레벨, 이름 지정 O
 );
 
 INSERT INTO USER_USED_PK
@@ -324,11 +338,12 @@ VALUES(1, 'user01', 'pass01', '홍길동', '남', '010-1234-5678', 'hong123@kh.o
 INSERT INTO USER_USED_PK
 VALUES(1, 'user02', 'pass02', '이순신', '남', '010-5678-9012', 'lee123@kh.or.kr');
 --> 기본키 중복으로 오류
+-- ORA-00001: 무결성 제약 조건(A230724_YSK.USER_NO_PK)에 위배됩니다
 
 INSERT INTO USER_USED_PK
 VALUES(NULL, 'user03', 'pass03', '유관순', '여', '010-9999-3131', 'yoo123@kh.or.kr');
 --> 기본키가 NULL 이므로 오류
-
+-- ORA-01400: NULL을 ("A230724_YSK"."USER_USED_PK"."USER_NO") 안에 삽입할 수 없습니다
 
 ---------------------------------------
 
@@ -356,35 +371,42 @@ VALUES(2, 'user01', 'pass01', '유관순', '여', '010-9999-3131', 'yoo123@kh.or
 INSERT INTO USER_USED_PK2
 VALUES(1, 'user01', 'pass01', '신사임당', '여', '010-9999-9999', 'sin123@kh.or.kr');
 -- 회원 번호와 아이디 둘다 중복 되었을 때만 제약조건 위배 에러 발생
-
+-- ORA-00001: 무결성 제약 조건(A230724_YSK.PK_USERNO_USERID)에 위배됩니다
 SELECT * FROM USER_USED_PK2;
 
 -- PRIMARY KEY는 NULL이 들어갈 수 없음
 INSERT INTO USER_USED_PK2
 VALUES(NULL, 'user01', 'pass01', '신사임당', '여', '010-9999-9999', 'sin123@kh.or.kr');
-
+-- ORA-01400: NULL을 ("A230724_YSK"."USER_USED_PK2"."USER_NO") 안에 삽입할 수 없습니다
 ----------------------------------------------------------------------------------------------------------------
 
 
 -- 4. FOREIGN KEY(외부키 / 외래키) 제약조건 
 
 -- 참조(REFERENCES)된 다른 테이블의 컬럼이 제공하는 값만 사용할 수 있음
+	--> 특정 값에 대한 중복 제거(무결성 유지)
+	--> 두 테이블이 같은 컬럼 값을 지님 ==> JOIN 활용
+
 -- FOREIGN KEY제약조건에 의해서 테이블간의 관계(RELATIONSHIP)가 형성됨
+
 -- 제공되는 값 외에는 NULL을 사용할 수 있음
 
--- 컬럼레벨일 경우
+-- REFERENCES : 참조
+-- 컬럼 레벨일 경우
 -- 컬럼명 자료형(크기) [CONSTRAINT 이름] REFERENCES 참조할 테이블명 [(참조할컬럼)] [삭제룰]
 
--- 테이블레벨일 경우
+-- 테이블 레벨일 경우
 -- [CONSTRAINT 이름] FOREIGN KEY (적용할컬럼명) REFERENCES 참조할테이블명 [(참조할컬럼)] [삭제룰]
 
--- * 참조될 수 있는 컬럼은 PRIMARY KEY컬럼과, UNIQUE 지정된 컬럼만 외래키로 사용할 수 있음
+-- * 참조될 수 있는 컬럼은 PRIMARY KEY컬럼과, 
+--   UNIQUE 지정된 컬럼만 외래키로 사용할 수 있음
 --참조할 테이블의 참조할 컬럼명이 생략이 되면, PRIMARY KEY로 설정된 컬럼이 자동 참조할 컬럼이 됨
 
 CREATE TABLE USER_GRADE(
   GRADE_CODE NUMBER PRIMARY KEY,
   GRADE_NAME VARCHAR2(30) NOT NULL
 );
+
 INSERT INTO USER_GRADE VALUES (10, '일반회원');
 INSERT INTO USER_GRADE VALUES (20, '우수회원');
 INSERT INTO USER_GRADE VALUES (30, '특별회원');
