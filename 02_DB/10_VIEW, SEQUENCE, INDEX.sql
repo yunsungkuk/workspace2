@@ -183,7 +183,7 @@ NOCACHE			-- 미리 발생시킬 숫자를 만들어 둠
 
 -- 현재 시퀀스 값 확인
 SELECT SEQ_TEST_NO.NEXTVAL FROM DUAL; -- 100
-
+SELECT * FROM TB_TEST;
 SELECT SEQ_TEST_NO.CURRVAL FROM DUAL; -- 100
 -- ORA-08002: 시퀀스 SEQ_TEST_NO.CURRVAL은 이 세션에서는 정의 되어 있지 않습니다
 -- 먼저 NEXTAVL 수행 후 CURRVAL수행!
