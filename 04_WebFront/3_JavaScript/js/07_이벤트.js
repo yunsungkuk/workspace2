@@ -112,29 +112,29 @@ input4.addEventListener('keyup', function(e){
    // e.target : 이벤트가 발생한 요소 (여기서는 #input4)
    // consloe.log(e.key);
    if(e.key == 'Enter'){
-      e.target
+      box4.style.backgroundColor = e.target.value;
    };
 });
 
 /* a태그 기본 이벤트 제거 */
-/* document.getElementById('move').addEventListener("click", function(e){
+document.getElementById('move').addEventListener("click", function(e){
    // e : 이벤트 객체
    // prevent : 하지 못하게 막다
    // default : 기본
    e.preventDefault(); // HTML 요소의 기본 이벤트 막음(제거)
 }); 
-*/
+
 
 /* from 태그 기본 이벤트 제거 */
 
 // 방법 1. e.preventDefault()
 
 // form태그가 제출 되었을 때 
-/* document.getElementById("login").addEventListener("submit", function(e){
+document.getElementById("login").addEventListener("submit", function(e){
    
    // alert("제출 되었습니다.");
    e.preventDefault();
-}) */
+})
 
 // 방법 2. 인라인 이벤트 모델 onsubmlit 이용
 function testFn(){
@@ -249,41 +249,5 @@ calc.addEventListener("click", function(){
    // #calc-result 요소의 내용으로 합계(sum) 
    result.innerText = sum;
 });
-
-
-
-// document 또는 window에 
-// 이벤트 리스너 추가할 수 있다!!!
-
-const qwer = document.getElementById("qwer");
-
-
-// 문서 내에서 키다운 이벤트가 발생했을 때
-document.addEventListener("keydown", function(e){
-   //눌러진 key가 q,w,e,r 이면
-   //화면의 q,w,e,r에 맞게 배경색 추가
-
-   let index = 0;
-
-   // e.key : 입력한 키
-   // 문자열.toLowerCase() : 소문자로 변경
-   switch(e.key.toLowerCase()){
-      case 'q': index = 0; break;
-   }
-   
-   qwer.
-   
-})
-
-
-// 문서 내에서 어떤 키든 떼진 경우
-document.addEventListener("keyup", function(){
-   //떼어진 key가 q,w,e,r 이면
-   //화면의 q,w,e,r에 맞게 배경색 white로 변경
-
-});
-
-
-
 
 
