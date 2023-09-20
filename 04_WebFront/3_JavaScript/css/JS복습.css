@@ -1,0 +1,69 @@
+*{
+   box-sizing: border-box;
+   padding: 0;
+   margin: 0;
+}
+
+.container{
+   width: 800px;
+   min-height: 70vh;
+   border: 3px solid black;
+   border-radius: 20px;
+   margin: 50px auto;
+}
+
+.container-row{
+   display: flex;
+   width: 100%;
+   padding: 10px;
+}
+
+.input-area{
+   flex-direction: column;
+   align-items: center;
+}
+
+/* 빙고 영역 */
+.bingo-area{
+   justify-content: center;
+   align-items: center;
+}
+
+.bingo-row{
+   display: flex;
+}
+
+.bingo-col{
+   width: 60px;
+   height: 60px;
+   border: 1px solid black;
+   margin: 3px;
+   
+   border-radius: 8px;
+   
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   
+   font-size: 23px;
+   font-weight: bold;
+
+   user-select: none;
+   cursor: pointer;
+}
+
+.bingo-col:hover{
+   background-color: chartreuse;
+}
+
+.bingo-col:active{
+   background-color: fuchsia;
+}
+/* 선택했을 때 */
+.bingo-col.check{
+   background-color: aqua;
+}
+/* 빙고가 완성되었을 때 */
+.bingo-col.bingo{
+   background-color: blue;
+}
