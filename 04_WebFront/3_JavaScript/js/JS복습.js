@@ -231,4 +231,4 @@ fontColor.addEventListener("keyup", () => {
    colors.style.color = fontColor.value;
    
    
-});
+});a
