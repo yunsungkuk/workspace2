@@ -1,0 +1,7 @@
+table{
+   border: 1px solid black;
+}
+
+tbody > tr > td:last-child > input{
+   width: 50px;
+}

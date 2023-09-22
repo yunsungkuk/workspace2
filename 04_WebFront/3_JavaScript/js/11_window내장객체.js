@@ -102,12 +102,6 @@ open2.addEventListener("click", () => {
                , "_blank"
                , "popup");
 });
-// 팝업창 열기
-open2.addEventListener("click", () => {
-   window.open( "https://www.kh-academy.co.kr"
-               , "_blank"
-               , "popup");
-});
 
 // 옵션 적용
 open3.addEventListener("click", () => {
