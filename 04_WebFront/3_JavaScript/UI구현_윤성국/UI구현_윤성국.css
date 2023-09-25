@@ -1,0 +1,27 @@
+tbody > tr > td:first-child{
+   vertical-align: top;
+   font-weight: bold;
+}
+
+tbody > tr > td:last-child > input{
+   font-size: 15px;
+   width: 100%;
+}
+tbody > tr > td:last-child > span{
+   font-size: 11px;
+   padding: 2px;
+   color: gray);
+}
+
+tfoot button{
+   width: 100%;
+   height: 40px;
+   margin-top: 30px;
+   font-weight: bold;
+   font-size: 15px;
+   background-color: rgba(129, 215, 42, 0.302);
+   color: #105c0c;
+}
+
+.check{color: green;}
+.error{color: red;}
