@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>00_STEP 과제</title>
+
+    <link rel="stylesheet" href="../css/윤성국.css">
+</head>
+<body>
+    <pre>
+        1. 사용자가 정보를 입력할 수 있는 입력양식을 구성할 것
+        (아이디, 비밀번호, 비밀번호 재확인, 이름, 이메일)
+
+        2. 전송 요청을 보낼 수 있는 버튼을 구성할 것
+
+        3. 화면 구성은 자유롭게 할 것
+    </pre>
+
+    
+    <div class="container">회원가입
+        <div class="box1">
+            <div class="box1-1">
+                <input type="text" placeholder="아이디" id="id">
+            </div>
+            <div class="box1-2">
+                <input type="password" placeholder="비밀번호" id="pw">
+            </div>
+            <div>
+                <input type="password" placeholder="비밀번호 재확인" id="pw1">
+            </div>
+            <div class="box1-3">
+                <input type="email" placeholder="이메일" id="email">
+            </div>
+        </div>
+        <div class="box2">
+            <div class="box2-1">
+                <input type="text" placeholder="이름" id="name">
+            </div>
+            <div class="box2-2">
+                <input type="text" placeholder="생년월일 8자리" id="date" maxlength="8">
+            </div>
+            <div class="box2-3" id="gender">
+                <input type="radio" name="gender" id="gender1">
+                <label for="gender1">남자</label>
+                <input type="radio" name="gender" id="gender2">
+                <label for="gender2">여자</label>
+            </div>
+            <div class="box2-4">
+                <select name="phone" id="phone">
+                    <option>가나 +233</option>
+                    <option selected>대한민국 +82</option>
+                    <option>독일 +49</option>
+                    <option>베냉 +229</option>
+                    <option>알바니아 +355</option>
+                    <option>태국 +66</option>
+                    <option>피지 +679</option>
+                    <option>프랑스령폴리네시아 +689</option>
+                    <option>포르투갈 +351</option>
+                    <option>튀니지 +216</option>
+                </select>
+            </div>
+            <div class="box2-5">
+                <input type="tel" placeholder="휴대전화번호" id="phonenumber">
+            </div>
+        </div>
+        <button id="but">가입하기</button>
+    </div>
+
+</body>
+</html>
