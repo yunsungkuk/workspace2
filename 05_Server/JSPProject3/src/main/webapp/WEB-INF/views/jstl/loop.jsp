@@ -151,7 +151,7 @@
          <c:forEach items="${bookList}" var="book" varStatus="vs">
             <tr>
                <td>${vs.index}</td>
-               <td data-price="${book.price}" class="book-title">${book.title}</td>
+               <td data-price="${book.price}-" class="book-title">${book.title}</td>
                <td>${book.writer}</td>
                <td>${book.price}</td>
             </tr>
