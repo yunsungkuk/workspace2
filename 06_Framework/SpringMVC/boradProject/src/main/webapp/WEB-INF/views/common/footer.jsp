@@ -14,3 +14,14 @@
         <a href="#">고객센터</a>    
     </article>
 </footer>
+
+<%-- EL / JSTL은 JSP 파일에서만 작성 가능!! --%>
+<%-- .css, .js, .html에서 EL/JSTL 사용 불가능! --%>
+
+<c:if test="${not empty message}">
+    <script>
+        alert( "${message}" );
+        // -> EL 구문 출력 시 ""/''가 없는 문자열로 출력되기 때문에
+        //    필요 시 JS에서 따옴표를 붙여야 한다!
+    </script>
+</c:if>

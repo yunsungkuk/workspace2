@@ -17,7 +17,6 @@ import lombok.ToString;
 // 사용 방법
 // - lombok에서 제공하는 어노테이션을 DTO 상단에 작성
 
-
 // DTO(Data Transfer Object) : 데이터 전달용 객체
 
 @NoArgsConstructor // 기본 생성자 자동 완성
@@ -26,10 +25,16 @@ import lombok.ToString;
 @ToString // toString 자동 완성
 public class Member {
 	
+	private int memberNo;
 	private String memberEmail;
 	private String memberPw;
-	private String membeName;
+	private String memberNickname;
+	private String memberTel;
+	private String memberAddress;
+	private String profileImg;
+	private String enrollDate;
+	private String memberDelFl;
+	private int authority;
 	
-
-
+	
 }
