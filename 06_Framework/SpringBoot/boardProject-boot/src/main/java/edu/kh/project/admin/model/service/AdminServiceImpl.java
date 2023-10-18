@@ -1,5 +1,6 @@
 package edu.kh.project.admin.model.service;
 
+import org.apache.ibatis.annotations.Mapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,9 +13,10 @@ public class AdminServiceImpl implements AdminService{
 	@Autowired
 	private AdminMapper mapper;
 	
-	
 	@Override
 	public Member selectMember(String inputEmail) {
 		return mapper.selectMember(inputEmail);
-	}
+	}	
+	
+
 }

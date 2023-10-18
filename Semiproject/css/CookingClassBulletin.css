@@ -1,0 +1,24 @@
+* {
+   box-sizing: border-box;
+   border: 1px solid black;
+}
+
+.rol{
+   display: flex;
+   justify-content: center;
+}
+
+.con{
+   display: flex;
+ justify-content: center;
+ align-items: center;
+}
+
+.box-1{
+width: 35%;
+}
+
+.box-2{
+   width: 35%;
+}
+
