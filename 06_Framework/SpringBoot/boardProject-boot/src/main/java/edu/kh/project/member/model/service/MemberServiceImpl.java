@@ -64,6 +64,11 @@ public class MemberServiceImpl implements MemberService{
 		return mapper.signup(inputMember);
 	}
 	
+	@Override
+	public Member quickLogin(String memberEmail) {
+		return mapper.login(memberEmail);
+	}
+	
 	
 }
 

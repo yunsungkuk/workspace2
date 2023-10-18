@@ -17,4 +17,10 @@ public interface MemberService {
 	 */
 	int singup(Member inputMember, String[] memberAddress);
 
+	/** 빠른 로그인
+	 * @param memberEmail
+	 * @return loginMember
+	 */
+	Member quickLogin(String memberEmail);
+
 }
