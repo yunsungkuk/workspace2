@@ -4,7 +4,7 @@ import com.kh.test.user.model.dto.User;
 
 public interface UserService {
 
-	User selectMember(String userId);
+	User selectMember(String inputId);
 
 
 }

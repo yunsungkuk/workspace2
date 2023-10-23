@@ -46,14 +46,22 @@
   </header>
   <main>
     <div class="main-container">
-      <div>
+      <div id="requestName">
         <div>제목</div>
-        <div>asdasd</div>
+        <input type="text" id="requestNameText">
+      </div>
+      <div id="requestFile">
+        <div>파일첨부</div>
+        <textarea name="" id="requestFileText"></textarea>
+      </div>
+      <div id="requestContent">
+        <div>내용</div>
+        <textarea name="" id="requestContentText"></textarea>
       </div>
       <div>
-        asd
+        <button id="saveBtn">작성완료</button>
+        <button id="testSaveBtn">임시저장</button>
       </div>
-
     </div>
   </main>
   <script src="/js/CookingClass/CookingClassRequest.js"></script>

@@ -6,7 +6,7 @@
 	<select id="selectMember" resultType="User">
 		SELECT *
 		FROM "TB_USER"
-		WHERE USER_ID = #{userId}
+		WHERE USER_ID = #{inputId}
 	</select>
 	
 	

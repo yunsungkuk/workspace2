@@ -17,13 +17,12 @@
   margin: 0;
   padding: 0;
   list-style: none;
-  border: 1px solid black;
+  /* border: 1px solid black; */
 }
 a{
   text-decoration: none;
 }
 body{
-  /* background-color:#e5e5e5 */
   background-color: var(--color-bg);
   display: flex;
   flex-direction: column;
@@ -99,7 +98,58 @@ nav>ul{
   z-index: 99;
   border-radius: 2rem;
   padding-bottom: 3rem;
-  display: flex;
 }
 
- 
+#requestName{
+  display: flex;
+  justify-content: center;
+  font-size: 2.3rem;
+  margin-top: 6rem;
+}
+#requestName > div{
+  padding-top: 18px;
+  width: 10rem;
+}
+#requestName > input{
+  width: 60%;
+  font-size: 2rem;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 10px;
+}
+
+#requestFile{
+  display: flex;
+  justify-content: center;
+  font-size: 2.3rem;
+}
+#requestFile > div{
+  padding-top: 15px;
+  width: 10rem;
+}
+#requestFile > textarea{
+  width: 60%;
+  height: 10rem;
+  font-size: 2rem;
+  padding: 5px;
+  margin: 10px;
+  border-radius: 10px;
+}
+
+#requestContent{
+  display: flex;
+  justify-content: center;
+  font-size: 2.3rem;
+}
+#requestContent > div{
+  padding-top: 15px;
+  width: 10rem;
+}
+#requestContent > textarea{
+  width: 60%;
+  height: 40rem;
+  font-size: 1.5rem;
+  padding: 8px;
+  margin: 10px;
+  border-radius: 10px;
+}

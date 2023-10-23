@@ -15,8 +15,8 @@ public class UserServiceiml implements UserService {
 	private UserMapper mapper;
 
 	@Override
-	public User selectMember(String userId) {
-		return mapper.selectMember(userId) ;
+	public User selectMember(String inputId) {
+		return mapper.selectMember(inputId);
 	}
 	
 	

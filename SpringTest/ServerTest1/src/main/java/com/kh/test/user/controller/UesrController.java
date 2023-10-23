@@ -18,9 +18,9 @@ public class UesrController {
 	private UserService service;
 	
 	@GetMapping("selectMember")
-	public String selectMember (String userId, Model model) {
+	public String selectMember (String inputId, Model model) {
 		
-		User selectMember = service.selectMember(userId);
+		User selectMember = service.selectMember(inputId);
 		
 		if(selectMember != null) {
 			model.addAttribute("selectMember", selectMember);
