@@ -28,7 +28,7 @@ public class BoardController {
 	
 	/** 게시글 상세조회
 	 * @param no : 게시글 번호
-	 * @param model 
+	 * @param model : 데이터 전달 객체
 	 * @param ra : 리다이렉트 시 데이터 전달
 	 * @return board/selectOne
 	 */
@@ -40,7 +40,7 @@ public class BoardController {
 		Board board = service.selectOne(no);
 		
 		if(board != null) {
-			// 반환 받은 데이터를 DB에 전달
+			// 반환 받은 데이터를 세션에 추가
 			model.addAttribute("board", board);
 			// selectOne 화면에 리턴
 			return "board/selectOne";
@@ -98,6 +98,13 @@ public class BoardController {
 	}
 	
 	
+	/** 비밀번호 확인 후 게시글 수정란으로 이동
+	 * @param boardPw : 비밀번호 조회
+	 * @param boardNo : No으로 조회
+	 * @param model
+	 * @param ra
+	 * @return
+	 */
 	@PostMapping("moveUpdate")
 	public String moveUpdate (String boardPw, int boardNo, Model model,
 			RedirectAttributes ra) {
@@ -106,6 +113,7 @@ public class BoardController {
 		Board board = service.moveUpdate(boardPw, boardNo);
 		
 		if(board != null) {
+			// 반환 받은 데이터를 세션에 추가
 			model.addAttribute("board", board);
 			return "board/update";
 		}
@@ -126,20 +134,16 @@ public class BoardController {
 		int result = service.updateBoard(board);
 		
 		String message = null;
-		if(result > 0) message = "수정 성공";
-		else	 message = "수정 실패";
+		if(result > 0) {
+			message = "수정 성공";
+		}
+		else	{
+			message = "수정 실패";
+		}
 		
 		ra.addFlashAttribute("message", message);
 		
 		return "redirect:selectOne?no=" + board.getBoardNo();
 	}
-	
-	
-	
-	
-	
-	
-	
-	
 	
 }
