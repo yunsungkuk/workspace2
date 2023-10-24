@@ -140,7 +140,7 @@ AND MEMBER_EMAIL = 'member01@naver.com';
 -- 일부라도 일치하는 이메일 모두 조회
 SELECT MEMBER_EMAIL
 FROM "MEMBER"
-WHERE MEMBER_EMAIL LIKE '%com%';
+WHERE MEMBER_EMAIL LIKE '%${keyword}%';
 
 
 
