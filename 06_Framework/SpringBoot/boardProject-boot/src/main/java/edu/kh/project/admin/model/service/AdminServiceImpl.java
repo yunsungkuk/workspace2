@@ -71,5 +71,6 @@ public class AdminServiceImpl implements AdminService{
 		return mapper.initPw(map);
 	}
 	
+	
 
 }

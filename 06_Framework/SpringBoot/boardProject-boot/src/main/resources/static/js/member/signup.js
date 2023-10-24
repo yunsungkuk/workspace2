@@ -66,10 +66,25 @@ memberEmail.addEventListener("input", () => {
    
    // 입력 받은 이메일이 정규식과 일치하는 경우
    if( regEx.test(memberEmail.value) ){
-      emailMessage.innerText = "유효한 이메일 형식입니다.";
-      emailMessage.classList.add("confirm"); // 초록색 글씨
-      emailMessage.classList.remove("error"); // 빨간 글씨 제거
-      checkObj.memberEmail = true; // 유효한 상태임을 기록
+
+      /* =============== 이메일 중복 검사 (비동기) =============== */
+      fetch("/member/checkEmail?email=" + memberEmail.value)
+      .then( response => response.text() )
+      .then( result => { 
+         if(result == 0){ // 중복 X
+            emailMessage.innerText = "사용 가능한 이메일 입니다.";
+            emailMessage.classList.add("confirm"); // 초록색 글씨
+            emailMessage.classList.remove("error"); // 빨간 글씨 제거
+            checkObj.memberEmail = true; // 유효한 상태임을 기록
+         } else { // 중복 O
+            emailMessage.innerText = "이미 사용중인 이메일 입니다.";
+            emailMessage.classList.add("error"); // 빨간색 글씨
+            emailMessage.classList.remove("confirm"); // 초록색 글씨 제거
+            checkObj.memberEmail = false; // 유효하지 않은 상태임을 기록
+         }
+      } )
+      .catch( e => console.log(e) )
+      /* ========================================================= */
    }
 
    // 입력 받은 이메일이 정규식과 일치하지 않은 경우
@@ -232,10 +247,25 @@ memberNickname.addEventListener("input", () => {
 
    // 닉네임이 유효할 경우
    if(regEx.test(memberNickname.value)) {
-      nickMessage.innerText = "유효한 닉네임 입니다.";
-      nickMessage.classList.add("confirm");
-      nickMessage.classList.remove("error");
-      checkObj.memberNickname = true;
+
+      /* =============== 닉네임 중복 검사 (비동기) =============== */
+      fetch("/member/checkNickname?nickname=" + memberNickname.value)
+      .then( response => response.text() )
+      .then( result => { 
+         if(result == 0) { // 중복 X
+            nickMessage.innerText = "사용가능한 닉네임 입니다.";
+            nickMessage.classList.add("confirm");
+            nickMessage.classList.remove("error");
+            checkObj.memberNickname = true;
+         } else { // 중복 O
+            nickMessage.innerText = "중복된 닉네임 입니다.";
+            nickMessage.classList.add("error");
+            nickMessage.classList.remove("confirm");
+            checkObj.memberNickname = false;
+         }
+      } )
+      .catch ( e => {console.log(e)} )
+      /* ========================================================= */
    }
    // 닉네임이 유효하지 않을 경우
    else {
