@@ -9,6 +9,4 @@ public interface UserMapper {
 
 	User selectMember(String inputId);
 
-	
-
 }
