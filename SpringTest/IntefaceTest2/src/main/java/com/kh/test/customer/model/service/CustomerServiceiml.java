@@ -13,8 +13,9 @@ public class CustomerServiceiml implements CustomerService {
 	private CustomerMapper mapper;
 	
 	@Override
-	public int updateCustomer(Customer customer) {
-		return mapper.updateCustomer(customer);
+	public int updateMember(Customer updateNo) {
+		return mapper.updateMember(updateNo);
 	}
-
+	
+	
 }

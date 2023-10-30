@@ -3,12 +3,12 @@
 
 <mapper namespace="com.kh.test.customer.model.mapper.CustomerMapper">
 	
-	<update id="updateCustomer">
-		UPDATE "CUSTOMER" SET 
+	<update id="updateMember">
+		UPDATE CUSTOMER SET
 		CUSTOMER_NAME = #{customerName},
 		CUSTOMER_TEL = #{customerTel},
 		CUSTOMER_ADDRESS = #{customerAddress}
-		WHERE CUSTOMER_NO = #{customerNo}
+		WHERE CUSTOMER_NO = #{customerNo}	
 	</update>
 	
 </mapper>

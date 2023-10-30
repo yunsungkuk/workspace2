@@ -3,8 +3,8 @@ package com.kh.test.customer.model.dto;
 import lombok.Getter;
 import lombok.Setter;
 
-@Setter
 @Getter
+@Setter
 public class Customer {
 	private int customerNo;
 	private String customerName;

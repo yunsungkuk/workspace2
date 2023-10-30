@@ -7,6 +7,8 @@ import com.kh.test.customer.model.dto.Customer;
 @Mapper
 public interface CustomerMapper {
 
-	int updateCustomer(Customer customer);
+	int updateMember(Customer updateNo);
+	
+	
 	
 }
