@@ -1,13 +1,17 @@
 package edu.kh.project.myPage.controller;
 
+import java.io.IOException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import edu.kh.project.member.model.dto.Member;
@@ -161,6 +165,40 @@ public class MyPageController {
 			
 		ra.addFlashAttribute("message", message);
 		return path;
+	}
+	
+	
+	/** 프로필 이미지 수정
+	 * @param profileImg
+	 * @param loginMember
+	 * @param ra
+	 * @return
+	 * @throws IOException 
+	 * @throws IllegalStateException 
+	 */
+	@PostMapping("profile")
+	public String profile(
+			@RequestParam("profileImg") MultipartFile profileImg,
+			@SessionAttribute("loginMember") Member loginMember,
+			RedirectAttributes ra) throws IllegalStateException, IOException {
+		
+		// 프로필 이미지 수정 서비스 호출 후 결과 반환
+		int result = service.profile(profileImg, loginMember);
+							// 실제 이미지 파일, 세션에 저장된 회원 정보
+		
+		// 서비스 결과에 따라 응답 제어
+		String message = null;
+		
+		if(result > 0) {
+			message = "프로필 이미지가 변경 되었습니다";
+		} else {
+			message = "프로필 변경 실패!";
+		}
+		
+		ra.addFlashAttribute("message", message);
+		
+		// 프로필 페이지로 리다이렉트
+		return "redirect:profile";
 	}
 	
 	

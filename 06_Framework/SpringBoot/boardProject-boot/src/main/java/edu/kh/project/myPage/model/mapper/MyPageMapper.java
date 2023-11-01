@@ -19,15 +19,21 @@ public interface MyPageMapper {
 
 	/** 비밀번호 변경
 	 * @param map
-	 * @return
+	 * @return result
 	 */
 	int changePw(Map<String, Object> map);
 
 	/** 회원 탈퇴
 	 * @param memberNo
-	 * @return
+	 * @return result
 	 */
 	int secession(int memberNo);
+
+	/** 프로필 이미지 수정
+	 * @param loginMember
+	 * @return result
+	 */
+	int profile(Member loginMember);
 
 
 	
