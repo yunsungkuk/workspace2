@@ -167,6 +167,16 @@ public class MyPageController {
 		return path;
 	}
 	
+	// -------------------------------------------
+	
+	// MultipartFile : multipart/form-data 형식으로 제출된 파라미터 중
+	//               file 타입 데이터만 추출해 저장하는 Spring 제공 객체
+	// - 실제 파일
+	// - 파일 이름
+	// - 파일 크기
+	// - 업로드된 파일을 지정된 경로에 저장하는 메서드
+	// (추가 설정 필요!)
+	
 	
 	/** 프로필 이미지 수정
 	 * @param profileImg

@@ -9,6 +9,10 @@ import edu.kh.project.member.model.dto.Member;
 @Mapper
 public interface MyPageMapper {
 
+	/** 회원 정보 수정
+	 * @param updateMember
+	 * @return
+	 */
 	int info(Member updateMember);
 
 	/** 회원 비밀번호(암호화) 조회

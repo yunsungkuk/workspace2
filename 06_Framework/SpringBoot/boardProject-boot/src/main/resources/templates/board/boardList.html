@@ -136,7 +136,8 @@
 
 
 			<!-- 검색창 -->
-            <form action="#" method="get" id="boardSearch">
+            <!-- <form th:action="[[${boardCode}]]" method="get" id="boardSearch"> -->
+            <form th:action="@{{boardCode}(boardCode=${boardCode})}" method="get" id="boardSearch">
 
                 <select name="key" id="searchKey">
                     <option value="t">제목</option>
@@ -152,9 +153,16 @@
 
         </section>
     </main>
+
+    
     
 
     <th:block th:replace="~{common/footer}"></th:block>
+
+    <script th:inline="javascript">
+        const boardCode = /*[[${boardCode}]]*/ "게시판 코드";
+        
+    </script>
 
     <script src="/js/board/boardList.js"></script>
 
