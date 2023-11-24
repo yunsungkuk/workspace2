@@ -213,6 +213,10 @@
     <script th:inline="javascript">
         const boardCode = /*[[${boardCode}]]*/ "게시판 코드";
     </script>
+    <script th:inline="javascript">
+        const message = /*[[${message}]]*/ "전달 받은 message";
+        if(message != null) alert(message);
+    </script>
 
     <script src="/js/board/boardList.js"></script>
 

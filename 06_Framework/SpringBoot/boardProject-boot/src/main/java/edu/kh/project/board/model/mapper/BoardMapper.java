@@ -81,6 +81,13 @@ public interface BoardMapper {
 	 * @return boardList
 	 */
 	List<Board> searchBoardList(Map<String, Object> paramMap, RowBounds rowBounds);
+
+	/** 게시판 종류 조회
+	 * @return list
+	 */
+	List<Map<String, Object>> selectBoardTypeList();
+	
+	
 	
 
 }
